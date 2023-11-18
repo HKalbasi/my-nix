@@ -154,13 +154,9 @@
     (vscode-with-extensions.override {
       vscode = vscodium;
       vscodeExtensions = with vscode-extensions; [
-        #bbenoist.nix
         ms-python.python
-        #ms-azuretools.vscode-docker
         ms-vscode-remote.remote-ssh
-        rust-lang.rust-analyzer
         vscode-icons-team.vscode-icons
-        #hediet.vscode-drawio
         tomoki1207.pdf
         jnoortheen.nix-ide
       ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
@@ -169,6 +165,12 @@
           publisher = "ms-vscode-remote";
           version = "0.47.2";
           sha256 = "1hp6gjh4xp2m1xlm1jsdzxw9d8frkiidhph6nvl24d0h8z34w49g";
+        }
+        {
+          name = "rust-analyzer";
+          publisher = "rust-lang";
+          version = "0.4.1736";
+          sha256 = "sha256-/v4JrKOJJ2SIzPFOUU/bNQ/fobMc/hvgToGZ5nDW/gk=";
         }
         {
           name = "vscode-drawio";
