@@ -47,6 +47,7 @@ let i3status-fork = import ./i3status-fork.nix (import <unstable> {}); in
             }
             {
               block = "net";
+              format = "$icon $ip ^icon_net_down $speed_down.eng(prefix:K) ^icon_net_up $speed_up.eng(prefix:K)";
               click = [{
                 button = "left";
                 cmd = "nm-connection-editor";
