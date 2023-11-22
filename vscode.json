@@ -1,0 +1,19 @@
+{
+    "workbench.iconTheme": "vscode-icons",
+    "git.enableSmartCommit": true,
+    "editor.formatOnSave": true,
+    "git.confirmSync": false,
+    "nix.enableLanguageServer": true, // Enable LSP.
+    "nix.serverPath": "nil", // The path to the LSP server executable.
+    "nix.serverSettings": {
+        "nil": {
+            "formatting": {
+                "command": [
+                    "nixpkgs-fmt"
+                ]
+            }
+        }
+    },
+    "editor.stickyScroll.enabled": true,
+    "hediet.vscode-drawio.resizeImages": null
+}

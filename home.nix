@@ -86,6 +86,10 @@ in
     };
   };
 
+  home.file = {
+    ".config/VSCodium/User/settings.json".source = ./vscode.json;
+  };
+
   # The state version is required and should stay at the version you
   # originally installed.
   home.stateVersion = "23.05";
