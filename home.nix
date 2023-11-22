@@ -22,6 +22,9 @@ in
       enable = true;
       userName = name;
       userEmail = email;
+      extraConfig = {
+        pull.rebase = true;
+      };
     };
     programs.i3status-rust = {
       enable = true;
