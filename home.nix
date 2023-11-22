@@ -1,5 +1,7 @@
 { pkgs, lib, ... }: 
-let i3status-fork = import ./i3status-fork.nix (import <unstable> {}); in
+let i3status-fork = import ./i3status-fork.nix (import <unstable> {});
+    personal = import ./personal.nix;
+in
 {
     xsession.windowManager.i3 = {
       enable = true;
@@ -15,6 +17,11 @@ let i3status-fork = import ./i3status-fork.nix (import <unstable> {}); in
           }
         ];
       };
+    };
+    programs.git = with personal.git; {
+      enable = true;
+      userName = name;
+      userEmail = email;
     };
     programs.i3status-rust = {
       enable = true;
@@ -34,6 +41,11 @@ let i3status-fork = import ./i3status-fork.nix (import <unstable> {}); in
                 button = "left";
                 cmd = "firefox --new-window https://time.ir";
               }];
+            }
+            {
+              block = "time";
+              interval = 1;
+              format = "$timestamp.datetime(f:'long', locale:'fa_IR-u-ca-islamic')";
             }
             {
               block = "cpu";

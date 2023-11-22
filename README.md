@@ -17,3 +17,12 @@ Clone the repository, then add `main.nix` to the `configuration.nix` imports:
     ];
 }
 ```
+Create a `personal.nix` file:
+```
+{
+  git = {
+    name = "Your Name";
+    email = "youremail@email.com";
+  };
+}
+```
