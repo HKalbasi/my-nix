@@ -10,6 +10,7 @@ in
       modifier = "Mod4";
       keybindings = lib.mkOptionDefault {
         "Mod4+Return" = "exec ${pkgs.konsole}/bin/konsole";
+        "Print" = "exec ${pkgs.flameshot}/bin/flameshot gui";
       };
       bars = [
         {
