@@ -53,6 +53,11 @@ in
             format = "$timestamp.datetime(f:'long', locale:'fa_IR-u-ca-islamic')";
           }
           {
+            block = "custom";
+            command = "praytimes-kit next --config ${./praytime-config.json}";
+            interval = 10;
+          }
+          {
             block = "cpu";
             click = [{
               button = "left";

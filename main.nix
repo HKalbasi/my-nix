@@ -3,7 +3,9 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 { pkgs, ... }:
-
+let
+  praytimes = import ./praytimes.nix (import <unstable> { });
+in
 {
   imports =
     [
@@ -129,6 +131,8 @@
     networkmanagerapplet
     arandr
     vlc
+
+    praytimes
 
     sfz
 
