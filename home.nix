@@ -32,6 +32,8 @@ in
     enable = true;
     bars = {
       bottom = {
+        icons = "awesome5";
+        theme = "solarized-dark";
         blocks = [
           {
             block = "time";

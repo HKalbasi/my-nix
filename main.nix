@@ -111,6 +111,11 @@ in
 
   #nixpkgs.overlays = [ (import (builtins.fetchTarball "https://github.com/oxalica/rust-overlay/archive/master.tar.gz")) ];
 
+  fonts.fonts = with pkgs; [
+    font-awesome
+    (nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" ]; })
+  ];
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -125,7 +130,6 @@ in
     appimage-run
     xkb-switch
     busybox
-    font-awesome_4
 
     pavucontrol
     networkmanagerapplet
