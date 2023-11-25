@@ -15,5 +15,7 @@
         }
     },
     "editor.stickyScroll.enabled": true,
+    "editor.fontFamily": "'Fira Code'",
+    "editor.fontLigatures": true,
     "hediet.vscode-drawio.resizeImages": null
 }

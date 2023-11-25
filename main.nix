@@ -113,6 +113,7 @@ in
 
   fonts.fonts = with pkgs; [
     font-awesome
+    fira-code
     (nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" ]; })
   ];
 
