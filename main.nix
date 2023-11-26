@@ -144,6 +144,17 @@ in
     nil
     nixpkgs-fmt
 
+    (
+      let
+        nix-alien-pkgs = import
+          (
+            builtins.fetchTarball "https://github.com/thiagokokada/nix-alien/tarball/master"
+          )
+          { };
+      in
+      nix-alien-pkgs.nix-alien
+    )
+
     git
     flameshot
     du-dust
