@@ -45,6 +45,14 @@ in
   #services.xserver.displayManager.gdm.enable = true;
   #services.xserver.desktopManager.gnome.enable = true;
 
+  virtualisation.docker = {
+    enable = true;
+    rootless = {
+      enable = true;
+      setSocketVariable = true;
+    };
+  };
+
   # Configure keymap in X11
   services.xserver = {
     enable = true;
@@ -122,6 +130,8 @@ in
     (nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" ]; })
   ];
 
+  environment.etc.openvpn.source = "${pkgs.update-resolv-conf}/libexec/openvpn";
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -176,6 +186,7 @@ in
     gnumake
     libllvm
     gdb
+    openvpn
     (vscode-with-extensions.override {
       vscode = vscodium;
       vscodeExtensions = with vscode-extensions; [
