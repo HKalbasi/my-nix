@@ -24,5 +24,16 @@ Create a `personal.nix` file:
     name = "Your Name";
     email = "youremail@email.com";
   };
+  proxychains = {
+    enable = true;
+    proxies = {
+      randomName = {
+        enable = true;
+        type = "socks5";
+        host = "192.168.12.150";
+        port = 10808;
+      };
+    };
+  };
 }
 ```

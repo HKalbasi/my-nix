@@ -5,6 +5,7 @@
 { pkgs, ... }:
 let
   praytimes = import ./praytimes.nix (import <unstable> { });
+  personal = import ./personal.nix;
 in
 {
   imports =
@@ -186,7 +187,10 @@ in
     gnumake
     libllvm
     gdb
+
     openvpn
+    wireshark
+
     (vscode-with-extensions.override {
       vscode = vscodium;
       vscodeExtensions = with vscode-extensions; [
@@ -225,7 +229,7 @@ in
   };
 
   programs.fish.enable = true;
-
+  programs.proxychains = personal.proxychains or { enable = false; };
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
