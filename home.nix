@@ -1,6 +1,6 @@
 { pkgs, lib, ... }:
 let
-  i3status-fork = import ./i3status-fork.nix (import <unstable> { });
+  i3status-rust = (import <unstable> { }).i3status-rust.override { withICUCalendar = true; };
   personal = import ./personal.nix;
 in
 {
@@ -15,7 +15,7 @@ in
       bars = [
         {
           position = "bottom";
-          statusCommand = "${i3status-fork}/bin/i3status-rs ~/.config/i3status-rust/config-bottom.toml";
+          statusCommand = "${i3status-rust}/bin/i3status-rs ~/.config/i3status-rust/config-bottom.toml";
         }
       ];
     };
