@@ -199,6 +199,7 @@ in
         vscode-icons-team.vscode-icons
         tomoki1207.pdf
         jnoortheen.nix-ide
+        eamodio.gitlens
       ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
         {
           name = "remote-ssh-edit";

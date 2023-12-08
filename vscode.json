@@ -3,6 +3,8 @@
     "git.enableSmartCommit": true,
     "editor.formatOnSave": true,
     "git.confirmSync": false,
+    "explorer.confirmDragAndDrop": false,
+    "explorer.sortOrder": "mixed",
     "nix.enableLanguageServer": true, // Enable LSP.
     "nix.serverPath": "nil", // The path to the LSP server executable.
     "nix.serverSettings": {
