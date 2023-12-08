@@ -147,6 +147,8 @@ in
     appimage-run
     xkb-switch
     busybox
+    unrar
+    wineWowPackages.full
 
     pavucontrol
     networkmanagerapplet
