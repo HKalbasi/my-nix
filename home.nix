@@ -12,6 +12,10 @@ in
         "Mod4+Return" = "exec ${pkgs.konsole}/bin/konsole";
         "Print" = "exec ${pkgs.flameshot}/bin/flameshot gui";
       };
+      startup = [{
+        always = true;
+        command = "${pkgs.networkmanagerapplet}/bin/nm-applet";
+      }];
       bars = [
         {
           position = "bottom";
