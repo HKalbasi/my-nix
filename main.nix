@@ -147,6 +147,8 @@ in
     appimage-run
     xkb-switch
     busybox
+    ripgrep
+    jq
     unrar
     wineWowPackages.full
 
@@ -154,6 +156,7 @@ in
     networkmanagerapplet
     arandr
     vlc
+    libreoffice
 
     praytimes
 
