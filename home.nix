@@ -30,6 +30,7 @@ in
     userEmail = email;
     extraConfig = {
       pull.rebase = true;
+      core.excludesFile = "${./global-git-ignore}";
     };
   };
   programs.i3status-rust = {
