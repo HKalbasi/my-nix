@@ -110,7 +110,7 @@ in
     isNormalUser = true;
     description = "user";
     shell = pkgs.fish;
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "libvirtd" ];
     packages = with pkgs; [
       firefox
       #  thunderbird
@@ -133,6 +133,8 @@ in
 
   environment.etc.openvpn.source = "${pkgs.update-resolv-conf}/libexec/openvpn";
 
+  virtualisation.libvirtd.enable = true;
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -151,6 +153,14 @@ in
     jq
     unrar
     wineWowPackages.full
+
+    # KVM virtualization
+    qemu
+    qemu_kvm
+    qemu-utils
+    bridge-utils
+    libvirt
+    virt-manager
 
     pavucontrol
     networkmanagerapplet
