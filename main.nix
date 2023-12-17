@@ -64,6 +64,12 @@ in
       xterm.enable = false;
     };
 
+    extraLayouts.fa = {
+      description = "Standard farsi keyboard + !@#$";
+      languages = [ "fa" ];
+      symbolsFile = ./ir-hamid.xkb;
+    };
+
     displayManager = {
       defaultSession = "none+i3";
     };

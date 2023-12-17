@@ -1,0 +1,10 @@
+xkb_symbols "ir-hamid"
+{
+  include "ir"            // includes the base US keys
+
+  key <LatA> { [ a, A, Greek_alpha ] };
+  key <LatB> { [ b, B, Greek_beta  ] };
+  key <LatG> { [ g, G, Greek_gamma ] };
+  key <LatD> { [ d, D, Greek_delta ] };
+  key <LatZ> { [ z, Z, Greek_zeta  ] };
+};
