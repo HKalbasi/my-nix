@@ -38,7 +38,7 @@ in
     bars = {
       bottom = {
         icons = "awesome5";
-        theme = "solarized-dark";
+        theme = "modern";
         blocks = [
           {
             block = "time";
