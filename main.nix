@@ -173,6 +173,7 @@ in
     arandr
     vlc
     libreoffice
+    persepolis
 
     praytimes
 
@@ -197,6 +198,7 @@ in
     du-dust
     python3
     rustup
+    evcxr
     deno
     #rust-bin.nightly.latest.default
     gcc
