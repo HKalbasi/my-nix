@@ -211,6 +211,7 @@ in
     libllvm
     gdb
 
+    xray
     openvpn
     wireshark
 
