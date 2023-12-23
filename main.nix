@@ -168,6 +168,9 @@ in
     libvirt
     virt-manager
 
+    # Fun
+    libsForQt5.marble
+
     pavucontrol
     networkmanagerapplet
     arandr
