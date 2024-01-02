@@ -203,6 +203,9 @@ in
     rustup
     evcxr
     deno
+    nodejs_20
+    geogebra
+    inkscape
     #rust-bin.nightly.latest.default
     gcc
     stdenv.cc
