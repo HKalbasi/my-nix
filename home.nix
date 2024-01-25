@@ -1,6 +1,6 @@
-{ pkgs, lib, ... }:
+{ unstable }: { pkgs, lib, ... }:
 let
-  i3status-rust = (import <unstable> { }).i3status-rust.override { withICUCalendar = true; };
+  i3status-rust = unstable.i3status-rust.override { withICUCalendar = true; };
   personal = import ./personal.nix;
 in
 {

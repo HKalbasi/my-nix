@@ -2,15 +2,16 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ pkgs, ... }:
+{ pkgs, home-manager, unstable, ... }:
 let
-  praytimes = import ./praytimes.nix (import <unstable> { });
+  praytimes = import ./praytimes.nix unstable;
   personal = import ./personal.nix;
 in
 {
   imports =
     [
-      <home-manager/nixos>
+      home-manager.nixosModules.default
+      /etc/nixos/hardware-configuration.nix
     ];
 
   # Bootloadero
@@ -122,7 +123,7 @@ in
       #  thunderbird
     ];
   };
-  home-manager.users.user = import ./home.nix;
+  home-manager.users.user = import ./home.nix { unstable = unstable; };
 
   # users.users.defaultUserShell = builtins.trace ''hello ${pkgs.fish}'' pkgs.fish;
 
@@ -131,7 +132,7 @@ in
 
   #nixpkgs.overlays = [ (import (builtins.fetchTarball "https://github.com/oxalica/rust-overlay/archive/master.tar.gz")) ];
 
-  fonts.fonts = with pkgs; [
+  fonts.packages = with pkgs; [
     font-awesome
     fira-code
     (nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" ]; })
@@ -170,6 +171,7 @@ in
 
     # Fun
     libsForQt5.marble
+    numbat
 
     pavucontrol
     networkmanagerapplet
@@ -254,7 +256,7 @@ in
   ];
 
   environment.shellAliases = {
-    update = "sudo nixos-rebuild switch";
+    update = "sudo nixos-rebuild switch --flake .#main --impure";
     code = "codium";
     nish = "nix-shell . --command fish";
   };
