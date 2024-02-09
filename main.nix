@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ pkgs, home-manager, unstable, ... }:
+{ pkgs, home-manager, unstable, nix-alien, ... }:
 let
   praytimes = import ./praytimes.nix unstable;
   personal = import ./personal.nix;
@@ -187,16 +187,7 @@ in
     nil
     nixpkgs-fmt
 
-    (
-      let
-        nix-alien-pkgs = import
-          (
-            builtins.fetchTarball "https://github.com/thiagokokada/nix-alien/tarball/master"
-          )
-          { };
-      in
-      nix-alien-pkgs.nix-alien
-    )
+    nix-alien.packages.${system}.nix-alien
 
     git
     flameshot
