@@ -141,6 +141,7 @@ in
   environment.etc.openvpn.source = "${pkgs.update-resolv-conf}/libexec/openvpn";
 
   virtualisation.libvirtd.enable = true;
+  virtualisation.vswitch.enable = true; # used for mininet
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -172,6 +173,7 @@ in
     # Fun
     libsForQt5.marble
     numbat
+    mininet
 
     pavucontrol
     networkmanagerapplet
