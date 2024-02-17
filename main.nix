@@ -202,6 +202,7 @@ in
     rustup
     evcxr
     probe-rs
+    openocd
     deno
     nodejs_20
     geogebra
