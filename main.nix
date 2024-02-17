@@ -92,6 +92,10 @@ in
   # Enable compositor
   services.picom.enable = true;
 
+  services.udev.packages = [
+    (import ./probe-rs-udev-rules.nix pkgs)
+  ];
+
   # Enable sound with pipewire.
   sound.enable = true;
   hardware.pulseaudio.enable = false;
@@ -197,6 +201,7 @@ in
     python3
     rustup
     evcxr
+    probe-rs
     deno
     nodejs_20
     geogebra
