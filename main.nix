@@ -222,6 +222,7 @@ in
     openvpn
     wireshark
 
+    vscode
     (vscode-with-extensions.override {
       vscode = vscodium;
       vscodeExtensions = with vscode-extensions; [
@@ -231,6 +232,7 @@ in
         tomoki1207.pdf
         jnoortheen.nix-ide
         eamodio.gitlens
+        esbenp.prettier-vscode
       ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
         {
           name = "remote-ssh-edit";
@@ -256,6 +258,7 @@ in
 
   environment.shellAliases = {
     update = "sudo nixos-rebuild switch --flake .#main --impure";
+    mscode = "${pkgs.vscode}/bin/code";
     code = "codium";
     nish = "nix-shell . --command fish";
   };

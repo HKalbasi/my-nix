@@ -19,5 +19,12 @@
     "editor.stickyScroll.enabled": true,
     "editor.fontFamily": "'Fira Code'",
     "editor.fontLigatures": true,
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[markdown]": {
+        // Just to disable prettier
+        "editor.defaultFormatter": "rust-lang.rust-analyzer"
+    },
     "hediet.vscode-drawio.resizeImages": null
 }
