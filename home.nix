@@ -1,4 +1,4 @@
-{ unstable }: { pkgs, lib, ... }:
+{ unstable, shmenu }: { pkgs, lib, ... }:
 let
   i3status-rust = unstable.i3status-rust.override { withICUCalendar = true; };
   personal = import ./personal.nix;
@@ -10,6 +10,7 @@ in
       modifier = "Mod4";
       keybindings = lib.mkOptionDefault {
         "Mod4+Return" = "exec ${pkgs.konsole}/bin/konsole";
+        "Mod4+d" = "exec ${shmenu}/bin/shmenu";
         "Print" = "exec ${pkgs.flameshot}/bin/flameshot gui";
       };
       startup = [{

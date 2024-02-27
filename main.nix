@@ -5,6 +5,7 @@
 { pkgs, home-manager, unstable, nix-alien, ... }:
 let
   praytimes = import ./praytimes.nix unstable;
+  shmenu = import ./shmenu.nix unstable;
   personal = import ./personal.nix;
 in
 {
@@ -78,7 +79,6 @@ in
     windowManager.i3 = {
       enable = true;
       extraPackages = with pkgs; [
-        dmenu #application launcher most people use
         i3lock #default i3 screen locker
         i3status
       ];
@@ -129,7 +129,7 @@ in
       #  thunderbird
     ];
   };
-  home-manager.users.user = import ./home.nix { unstable = unstable; };
+  home-manager.users.user = import ./home.nix { unstable = unstable; shmenu = shmenu; };
 
   # users.users.defaultUserShell = builtins.trace ''hello ${pkgs.fish}'' pkgs.fish;
 
@@ -189,6 +189,7 @@ in
     persepolis
 
     praytimes
+    shmenu
 
     sfz
 
