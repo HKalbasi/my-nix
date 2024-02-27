@@ -91,6 +91,8 @@ in
   services.printing.enable = true;
   # Enable compositor
   services.picom.enable = true;
+  # Enable battery manager
+  services.upower.enable = true;
 
   services.udev.packages = [
     (import ./probe-rs-udev-rules.nix pkgs)

@@ -72,6 +72,12 @@ in
             }];
           }
           {
+            block = "battery";
+            format = " $icon $percentage {$time |}";
+            device = "DisplayDevice";
+            driver = "upower";
+          }
+          {
             block = "disk_space";
           }
           {
