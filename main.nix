@@ -236,6 +236,7 @@ in
         jnoortheen.nix-ide
         eamodio.gitlens
         esbenp.prettier-vscode
+        vadimcn.vscode-lldb
       ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
         {
           name = "remote-ssh-edit";
