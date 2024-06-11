@@ -196,6 +196,7 @@ in
     numbat
     mininet
     stockfish
+    mindustry
 
     pavucontrol
     networkmanagerapplet
