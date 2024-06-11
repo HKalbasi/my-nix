@@ -16,6 +16,11 @@
             }
         }
     },
+    "rust-analyzer.server.path": "~/oss/rust-analyzer/target/release/rust-analyzer",
+    "rust-analyzer.testExplorer": true,
+    "rust-analyzer.cargo.extraEnv": {
+        "RUSTC_BOOTSTRAP": "1"
+    },
     "editor.stickyScroll.enabled": true,
     "editor.fontFamily": "'Fira Code'",
     "editor.fontLigatures": true,

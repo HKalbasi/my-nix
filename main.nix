@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ pkgs, home-manager, unstable, nix-alien, ... }:
+{ pkgs, home-manager, unstable, nix-alien, config, ... }:
 let
   praytimes = import ./praytimes.nix unstable;
   shmenu = import ./shmenu.nix unstable;
@@ -101,6 +101,17 @@ in
   # Enable sound with pipewire.
   sound.enable = true;
   hardware.pulseaudio.enable = false;
+  hardware.opengl = {
+    enable = true;
+    driSupport = true;
+    extraPackages = with pkgs; [
+      intel-media-driver # LIBVA_DRIVER_NAME=iHD
+      intel-vaapi-driver # LIBVA_DRIVER_NAME=i965 (older but works better for Firefox/Chromium)
+      vaapiVdpau
+      libvdpau-va-gl
+    ];
+  };
+
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -136,6 +147,7 @@ in
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.nvidia.acceptLicense = true;
 
   #nixpkgs.overlays = [ (import (builtins.fetchTarball "https://github.com/oxalica/rust-overlay/archive/master.tar.gz")) ];
 
@@ -161,6 +173,7 @@ in
     gnome.eog
     gnome.gnome-system-monitor
     gnome.gnome-disk-utility
+    copyq # clipboard manager
     appimage-run
     xkb-switch
     busybox
@@ -168,6 +181,7 @@ in
     jq
     unrar
     wineWowPackages.full
+    libva-utils
 
     # KVM virtualization
     qemu
@@ -181,6 +195,7 @@ in
     libsForQt5.marble
     numbat
     mininet
+    stockfish
 
     pavucontrol
     networkmanagerapplet
@@ -220,6 +235,8 @@ in
     cmake
     gnumake
     libllvm
+    hyperfine
+    clang-tools
     gdb
 
     xray
@@ -238,6 +255,7 @@ in
         eamodio.gitlens
         esbenp.prettier-vscode
         vadimcn.vscode-lldb
+        llvm-vs-code-extensions.vscode-clangd
       ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
         {
           name = "remote-ssh-edit";
@@ -248,8 +266,8 @@ in
         {
           name = "rust-analyzer";
           publisher = "rust-lang";
-          version = "0.4.1736";
-          sha256 = "sha256-/v4JrKOJJ2SIzPFOUU/bNQ/fobMc/hvgToGZ5nDW/gk=";
+          version = "0.4.1876";
+          sha256 = "sha256-sBMKZODhftekWGDvzrKvHWJQ4knefHLF5umzavC9lRE=";
         }
         {
           name = "vscode-drawio";

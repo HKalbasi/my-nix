@@ -34,6 +34,12 @@ in
       core.excludesFile = "${./global-git-ignore}";
     };
   };
+  programs.obs-studio = {
+    enable = true;
+    plugins = with pkgs.obs-studio-plugins; [
+      obs-backgroundremoval
+    ];
+  };
   programs.i3status-rust = {
     enable = true;
     bars = {
@@ -71,6 +77,9 @@ in
               button = "left";
               cmd = "gnome-system-monitor";
             }];
+          }
+          {
+            block = "temperature";
           }
           {
             block = "battery";
