@@ -25,7 +25,7 @@ in
 
   networking.firewall = {
     enable = true;
-    allowedTCPPorts = [ 80 443 5000 8000 8080 ];
+    allowedTCPPorts = [ 22 80 443 5000 8000 8080 ];
   };
 
   # Configure network proxy if necessary
@@ -166,7 +166,9 @@ in
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    konsole
+    zellij
+    alacritty
+    yazi
     fish
     dconf
     gnome.nautilus
@@ -197,6 +199,8 @@ in
     mininet
     stockfish
     mindustry
+    steam-run
+    deluged
 
     pavucontrol
     networkmanagerapplet
@@ -243,6 +247,7 @@ in
     xray
     openvpn
     wireshark
+    qv2ray
 
     vscode
     (vscode-with-extensions.override {
@@ -288,6 +293,12 @@ in
   };
 
   programs.fish.enable = true;
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+    # localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
+  };
   programs.proxychains = personal.proxychains or { enable = false; };
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -300,7 +311,7 @@ in
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
+  services.openssh.enable = true;
   services.devmon.enable = true;
   services.gvfs.enable = true;
   services.udisks2.enable = true;

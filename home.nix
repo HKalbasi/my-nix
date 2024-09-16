@@ -9,7 +9,7 @@ in
     config = {
       modifier = "Mod4";
       keybindings = lib.mkOptionDefault {
-        "Mod4+Return" = "exec ${pkgs.konsole}/bin/konsole";
+        "Mod4+Return" = "exec ${pkgs.alacritty}/bin/alacritty";
         "Mod4+d" = "exec ${shmenu}/bin/shmenu";
         "Print" = "exec ${pkgs.flameshot}/bin/flameshot gui";
       };
