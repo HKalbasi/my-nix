@@ -270,6 +270,12 @@ in
           sha256 = "1hp6gjh4xp2m1xlm1jsdzxw9d8frkiidhph6nvl24d0h8z34w49g";
         }
         {
+          name = "shopify-liquid";
+          publisher = "sissel";
+          version = "4.0.1";
+          sha256 = "sha256-W4ZKGlc8MuyS46imasfPiIZlMDsnqwhdOUoKACv4DbQ=";
+        }
+        {
           name = "rust-analyzer";
           publisher = "rust-lang";
           version = "0.4.1876";
