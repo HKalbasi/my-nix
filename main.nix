@@ -223,7 +223,7 @@ in
     flameshot
     du-dust
     python3
-    rustup
+    unstable.pkgs.rustup
     evcxr
     probe-rs
     openocd
@@ -250,11 +250,11 @@ in
     qv2ray
 
     vscode
-    (vscode-with-extensions.override {
+    (with unstable.pkgs; vscode-with-extensions.override {
       vscode = vscodium;
       vscodeExtensions = with vscode-extensions; [
         ms-python.python
-        ms-vscode-remote.remote-ssh
+        #ms-vscode-remote.remote-ssh
         vscode-icons-team.vscode-icons
         tomoki1207.pdf
         jnoortheen.nix-ide
